@@ -7,16 +7,15 @@
 2. Для работы скрипта нужен терминал/консоль, python3, и 2 пакета из файла requirements.txt - pytz и telethon. 
 Если этот пункт не понятен, он будет разжёван поподробнее отдельно.
 
-3. git clone https://github.com/goodronoid/CWtelethonbot.git
-Это мы копируем файлики себе.
+3. Копируем файлики себе командой: git clone https://github.com/goodronoid/CWtelethonbot.git
 
-4. В файле username_tg_connect.json вбиваем свои данные.
-Все зачения должны быть в кавычках, кроме номера API_ID.
+4. В файле username_tg_connect.json вбиваем свои данные полученные в п. 1.
+Все значения должны быть в кавычках, кроме номера API_ID.
 
 5. Сам файл username_tg_connect.json переименовываем. Вместо "username" пишем свой юзернейм. Должно получиться что-то типа koltsov_tg_connect.json.
 
 6. Всё готово для запуска. Запускаем командой: 
-python cw_telethonbot.py -a admin_username -o order_username1,order_username2 -n name_of_group -u username
+python3 cw_telethonbot.py -u username -a admin_username -o order_username1,order_username2 -n name_of_group
 
 Объясню:
 -u или --username - юзернейм. Всё тот же что и в пунктах 4 и 5.
