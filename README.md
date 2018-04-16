@@ -65,3 +65,21 @@ python3 cw_telethonbot.py -u username -a admin_username -o order_username1,order
 - вкл/выкл бота командами #enable_bot #disable_bot
 - текущее состояние настроек можно узнать командой #status
 - справку по командам можно получить, отправив #help
+
+### Если у тебя Андроид
+
+1. Ставим Termux из маркета.
+2. Запускаем.
+3. Устанавливаем git (инструмент работы с репозиториями): apt install git
+4. Вводим команду git clone https://github.com/goodronoid/CWtelethonbot.git
+5. Установим две библиотеки для работы скрипта: pip3 install -r ./CWtelethonbot/pip3.txt
+6. Редактируем файл настроек подключения к Телеграму:
+- nano ./CWtelethonbot/username_tg_connect.json
+- значения по умолчанию меняем на свои: api и hash полученные на https://my.telegram.org, номер телефона, юзернейм
+- закрываем файл нажатием VolumeDown+X
+- на вопрос "Сохранить?" жмём Y
+- на вопрос "Под каким именем?" пишем username_tg_connect.json, где вместо "username" пишем свой юзернейм
+- жмём Enter
+6. Создадим файлик для быстрого старта бота: echo python ./CWteletonbot/cw_telethonbot.py -a admin_username -o order_username1,order_username2 -n name_of_group -u username > username_startbot
+В этой команде заменяем всё как написано в пункте 6 основной инструкции по установке.
+7. Запускаем бота командой ". username_startbot"
