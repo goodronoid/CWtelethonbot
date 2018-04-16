@@ -769,27 +769,27 @@ def parse_text(text, username, message_id, sender):
             action_list.append(c)
 
         if bot_enabled and order_enabled and (username in order_usernames or username == admin_username):
-            if text.startswith(orders['red']) != -1:
+            if text.startswith(orders['red']):
                 update_order(orders['red'])
-            elif text.startswith(orders['black']) != -1:
+            elif text.startswith(orders['black']):
                 update_order(orders['black'])
-            elif text.startswith(orders['white']) != -1:
+            elif text.startswith(orders['white']):
                 update_order(orders['white'])
-            elif text.startswith(orders['yellow']) != -1:
+            elif text.startswith(orders['yellow']):
                 update_order(orders['yellow'])
-            elif text.startswith(orders['blue']) != -1:
+            elif text.startswith(orders['blue']):
                 update_order(orders['blue'])
-            elif text.startswith(orders['mint']) != -1:
+            elif text.startswith(orders['mint']):
                 update_order(orders['mint'])
-            elif text.startswith(orders['twilight']) != -1:
+            elif text.startswith(orders['twilight']):
                 update_order(orders['twilight'])
-            elif text.startswith('🌲') != -1:
+            elif text.startswith('🌲'):
                 update_order(orders['lesnoi_fort'])
-            elif text.startswith('⛰') != -1:
+            elif text.startswith('⛰'):
                 update_order(orders['gorni_fort'])
-            elif text.startswith('⚓️') != -1:
+            elif text.startswith('⚓️'):
                 update_order(orders['morskoi_fort'])
-            elif text.startswith('🛡') != -1:
+            elif text.startswith('🛡'):
                 update_order(castle)
 
         # send_msg(pref, admin_username, 'Получили команду ' + current_order['order'] + ' от ' + username)
