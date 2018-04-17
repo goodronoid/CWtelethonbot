@@ -72,7 +72,7 @@ python3 cw_telethonbot.py -u username -a admin_username -o order_username1,order
 2. Запускаем.
 3. Устанавливаем git (инструмент работы с репозиториями): apt install git
 4. Вводим команду git clone https://github.com/goodronoid/CWtelethonbot.git
-5. Установим две библиотеки для работы скрипта: pip3 install -r ./CWtelethonbot/pip3.txt
+5. Установим две библиотеки для работы скрипта: pip3 install -r ./CWtelethonbot/requirements.txt
 6. Редактируем файл настроек подключения к Телеграму:
 - nano ./CWtelethonbot/username_tg_connect.json
 - значения по умолчанию меняем на свои: api и hash полученные на https://my.telegram.org, номер телефона, юзернейм
