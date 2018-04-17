@@ -283,8 +283,9 @@ def queue_worker():
                 else:
                     get_info_diff = random.randint(600, 900)
                 if bot_enabled:
-                    action_list.append(orders['castle_menu'])
                     action_list.append(orders['hero'])
+                    if castle_gold == 0:
+                        action_list.append(orders['castle_menu'])
                 continue
             if len(action_list):
                 log('Отправляем ' + action_list[0])
@@ -539,6 +540,7 @@ def parse_text(text, username, message_id, sender):
 
         elif 'В казне недостаточно' in text:
             log("Стройка не удалась, в замке нет денег")
+            castle_gold = 0
 
         elif corovan_enabled and text.find(' /go') != -1:
             action_list.append(orders['corovan'])
