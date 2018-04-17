@@ -80,6 +80,6 @@ python3 cw_telethonbot.py -u username -a admin_username -o order_username1,order
 - на вопрос "Сохранить?" жмём Y
 - на вопрос "Под каким именем?" пишем username_tg_connect.json, где вместо "username" пишем свой юзернейм
 - жмём Enter
-6. Создадим файлик для быстрого старта бота: echo python ./CWteletonbot/cw_telethonbot.py -a admin_username -o order_username1,order_username2 -n name_of_group -u username > username_startbot
+6. Создадим файлик для быстрого старта бота: echo python ./CWteletonbot/cw_telethonbot.py -a admin_username -o order_username1,order_username2 -n name_of_group -u username > ./CWteletonbot/username_startbot
 В этой команде заменяем всё как написано в пункте 6 основной инструкции по установке.
-7. Запускаем бота командой ". username_startbot"
+7. Запускаем бота командой ". /CWteletonbot/username_startbot"
