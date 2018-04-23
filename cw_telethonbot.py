@@ -480,12 +480,8 @@ def parse_text(text, username, message_id, sender):
             fwd('@', stat_bot, message_id, sender)
 
         elif 'Здание отремонтировано:' in text:
-            if castle_name == 'red':
-                log("Отремонтировали, сообщаем легату")
-                fwd('@', stat_bot, message_id, sender)
-            if castle_name == 'blue':
-                log("Отремонтировали, сообщаем ойстеру")
-                fwd('@', 'BlueOysterBot', message_id, sender)
+            log("Отремонтировали, сообщаем легату")
+            fwd('@', stat_bot, message_id, sender)
 
         elif 'Твои результаты в бою:' in text:
             log("Повоевали, сообщаем легату")
@@ -676,23 +672,27 @@ def parse_text(text, username, message_id, sender):
                         if build_enabled and castle_gold > 0 and level >= 10:
                             log('Пойдем строить')
                             action_list.append(orders['castle_menu'])
-                            if random.randint(0, 1) == 0:
-                                action_list.append(build_target)
-                            else:
-                                action_list.append('🏘Постройки')
-                                action_list.append('🚧Стройка')
-                                action_list.append(build_target)
+                            action_list.append(build_target)
+                            #if random.randint(0, 1) == 0:
+                                #action_list.append(build_target)
+                            #else:
+                                #action_list.append('🏘Постройки')
+                                #action_list.append('🚧Стройка')
+                                #action_list.append(build_target)
 
-                elif build_enabled and level >= 10:
+                elif build_enabled and castle_gold > 0 and level >= 10:
                     log('Пойдем строить')
-                    if random.randint(0, 1) == 0:
-                        action_list.append(build_target)
-                    else:
-                        action_list.append(orders['castle_menu'])
-                        action_list.append('🏘Постройки')
-                        action_list.append('🚧Стройка')
-                        action_list.append(build_target)
+                    action_list.append(orders['castle_menu'])
+                    action_list.append(build_target)
+                    #if random.randint(0, 1) == 0:
+                        #action_list.append(build_target)
+                    #else:
+                        #action_list.append(orders['castle_menu'])
+                        #action_list.append('🏘Постройки')
+                        #action_list.append('🚧Стройка')
+                        #action_list.append(build_target)
 
+#воюем на арене
         elif arena_enabled and text.find('выбери точку атаки и точку защиты') != -1:
             arena_running = True  # на случай, если арена запущена руками
             lt_arena = time()
@@ -709,6 +709,7 @@ def parse_text(text, username, message_id, sender):
                 action_list.append(cover_chosen)
                 action_list.append(attack_chosen)
 
+#победа на арене
         elif text.find('одержал победу над') != -1 or text.find('Ничья') != -1:
             fwd('@', stat_bot, message_id, sender)
             lt_info = time()
@@ -718,13 +719,16 @@ def parse_text(text, username, message_id, sender):
             if arena_change_enabled:
                 action_list.append('/on_{0}'.format(non_arena_item_id))
 
+#в квесте встретили моба
         elif quest_fight_enabled and text.find('/fight') != -1:
             log("Просим помощи у отряда")
-            fwd('@', stat_bot, message_id, sender)
+            # TODO отключаем, чтоб не злить соклановцев
+            #fwd('@', stat_bot, message_id, sender)
             c = re.search('\/fight.*', text).group(0)
             action_list.append(c)
             fwd(pref, msg_receiver, message_id, sender)
 
+#Замок
         elif text.find("Казна замка:") != -1:
             castle_gold = int(re.search('Казна замка:\n(\d+)', text).group(1))
             log("Голды в замке = {0}".format(castle_gold))
@@ -1166,7 +1170,7 @@ def update_order(order):
     else:
         action_list.append(orders['attack'])
     action_list.append(order)
-    action_list.append(orders['hero'])
+    # action_list.append(orders['hero'])
 
 
 def log(text):
