@@ -3,6 +3,7 @@
 import _thread
 import configparser
 import json
+import socks
 import os
 import random
 import re
@@ -131,7 +132,8 @@ builds = {
     'repair_hq': '/repair_hq',
     'repair_gladiators': '/repair_gladiators',
     'repair_wall': '/repair_wall',
-    'repair_ambar': '/repair_ambar'
+    'repair_ambar': '/repair_ambar',
+    'repair_goldrewards2': '/repair_goldrewards2'
 }
 
 flags = {
@@ -237,7 +239,7 @@ def connect(username, api, tghash):
     client = telethon.TelegramClient(username, api, tghash,
                                      connection_mode=telethon.ConnectionMode.TCP_FULL,
                                      timeout=86400,
-                                     # proxy=(socks.SOCKS5, 'host', port),
+                                     proxy=(socks.SOCKS5, 'de51.fri-gate0.biz', 1080),
                                      update_workers=1, spawn_read_thread=False)
 
     # proxy (`tuple` | `dict`, optional):
