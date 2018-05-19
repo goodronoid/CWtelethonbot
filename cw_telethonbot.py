@@ -30,7 +30,7 @@ lvl_up = 'lvl_off'
 # сколько голды оставлять на руках после автодоната
 gold_to_left = 0
 # username игрового бота
-bot_username = 'ChatWarsBot'
+bot_username = 'ChatWarsClassicBot'
 # username бота сбора статистики
 stat_bot = 'CWRedCastleBot'
 # трейдобот
